@@ -1,47 +1,54 @@
-How to Set Up and Run the Application
+# How to Set Up and Run the Application
 
-Prerequisites
+## Prerequisites
 
-Ruby version 3.2.2 (you've confirmed it's installed)
-Node.js version 21.7.3 (also confirmed)
-SQLite version 3.8.0 or higher (see the setup steps below for installation)
+Make sure you have the following installed:
 
+- **Ruby** version 3.2.2 (You’ve confirmed it's installed)
+- **Node.js** version 21.7.3 (Also confirmed)
+- **SQLite** version 3.8.0 or higher (Follow the setup steps below for installation)
 
-1. Install Dependencies
+## Install Dependencies
+
 Make sure you have the necessary gems and dependencies installed.
 
-a. Install SQLite3
-You mentioned SQLite3 is required, so we’ll need to ensure it's installed.
+### a. Install SQLite3
 
-Install SQLite3:
+SQLite3 is required, so you’ll need to install it.
 
-To install the sqlite3 gem, run:
+Run the following command to install the `sqlite3` gem:
 
+```bash
 gem install sqlite3
-b. Install Bundler
+```
+
+### b. Install Bundler
 
 If you don’t have Bundler installed yet, install it:
-
-
+```bash
 gem install bundler
+```
 
 
-c. Install the Gem Dependencies
+### c. Install the Gem Dependencies
 Navigate to the root directory of your application (if you're not already there):
-
-
+```bash
 bundle install
+```
 This will install the necessary Ruby gems, including Rails and SQLite3 (if they’re in your Gemfile).
 
 
-Create and Migrate the Database
+### Create and Migrate the Database
+```bash
 rake db:create
+```
 
-
-After the database is created, apply any pending migrations:
+###After the database is created, apply any pending migrations:
+```bash
 rake db:migrate
+```
 
-
-
-Start the Rails Server
+### Start the Rails Server
+```bash
 rails server
+```
