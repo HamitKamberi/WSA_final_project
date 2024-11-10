@@ -48,6 +48,11 @@ rake db:create
 rake db:migrate
 ```
 
+
+### API Documenation you can check on this file : 
+
+**Assigment 1.postman_collection.json**
+
 ### Start the Rails Server
 ```bash
 rails server
