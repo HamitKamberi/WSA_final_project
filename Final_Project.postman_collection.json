@@ -1,0 +1,938 @@
+{
+	"info": {
+		"_postman_id": "cb512899-e0ca-40f2-8a10-cd5ba1826b49",
+		"name": "Final_Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32426502"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"user\": {\n    \"email\": \"hamit@example.com\",\n    \"password\": \"password123\",\n    \"password_confirmation\": \"password123\",\n    \"role\": \"simple_user\"\n  }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"signup"
+					]
+				},
+				"description": "### Signup\n\nThis endpoint is used to create a new user account.\n\n#### Request Body\n\n- user (object)\n    - email (string): The email address of the user.\n    - password (string): The password for the user account.\n    - password_confirmation (string): The confirmation of the password.\n    - role (string): The role of the user.\n\n#### Response\n\nThe response is in JSON format and follows the schema below:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"token\": {\"type\": \"string\"},\n    \"user\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\"type\": \"integer\"},\n        \"email\": {\"type\": \"string\"},\n        \"password_digest\": {\"type\": \"string\"},\n        \"role\": {\"type\": \"string\"},\n        \"created_at\": {\"type\": \"string\"},\n        \"updated_at\": {\"type\": \"string\"}\n      }\n    }\n  }\n}\n\n ```"
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user\": {\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\",\n    \"password_confirmation\": \"password123\",\n    \"role\": \"simple_user\"\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f07b228bf61865992880d1cbadf09016\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "bd4b8eae-6baf-477a-b81e-06dabbd881fc"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.317238"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "start_processing.action_controller;dur=0.24, sql.active_record;dur=11.61, process_action.action_controller;dur=306.02"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJyb2xlIjoic2ltcGxlX3VzZXIifQ.yWlc0yY2IqTmhbO6voxJUTsMn7iZR0L6_ObrQ46Tkfg\",\n    \"user\": {\n        \"id\": 5,\n        \"email\": \"test@example.com\",\n        \"password_digest\": \"$2a$12$/W//YFVOflmxIXyqxLp4bentHSjO3w4CpYG3X8t0TXs8NsX46HRwy\",\n        \"role\": \"simple_user\",\n        \"created_at\": \"2025-01-07T12:45:56.960Z\",\n        \"updated_at\": \"2025-01-07T12:45:56.960Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"password123\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				},
+				"description": "The `POST /login` endpoint is used to authenticate a user and obtain a token for accessing protected resources.\n\n### Request Body\n\n- The request body should be in JSON format and include the following parameters:\n    - `email`: (string) The email of the user.\n    - `password`: (string) The password of the user.\n\n### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"token\": {\n            \"type\": \"string\"\n        },\n        \"user\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"id\": {\n                    \"type\": \"integer\"\n                },\n                \"email\": {\n                    \"type\": \"string\"\n                },\n                \"password_digest\": {\n                    \"type\": \"string\"\n                },\n                \"role\": {\n                    \"type\": \"string\"\n                },\n                \"created_at\": {\n                    \"type\": \"string\"\n                },\n                \"updated_at\": {\n                    \"type\": \"string\"\n                }\n            }\n        }\n    }\n}\n\n ```\n\nThe response will have a `token` field containing the authentication token and a `user` object with user details including `id`, `email`, `password_digest`, `role`, `created_at`, and `updated_at`."
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"password123\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"02ed9d4e60f9281625c496740f6cbd41\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "2287b437-8885-4a4d-b2db-3567aba330e2"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.298356"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "start_processing.action_controller;dur=0.18, sql.active_record;dur=0.93, instantiation.active_record;dur=0.06, process_action.action_controller;dur=293.78"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4ifQ.dz-zND_Nkjkp_jLdGzVtjaB8mE77kNIE15P3p8mmCAU\",\n    \"user\": {\n        \"id\": 2,\n        \"email\": \"admin@example.com\",\n        \"password_digest\": \"$2a$12$DbT93w196YuWxl4B6FKLLOX60I18Xvhl9.Z4fLz9/sZzTQ2aAdeIm\",\n        \"role\": \"admin\",\n        \"created_at\": \"2024-11-08T12:52:25.590Z\",\n        \"updated_at\": \"2024-11-08T12:52:25.590Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/products",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4ifQ.dz-zND_Nkjkp_jLdGzVtjaB8mE77kNIE15P3p8mmCAU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Product Name\",\n  \"description\": \"Product Description\",\n  \"price\": 100,\n  \"stock\": 50,\n  \"category\": \"Shirts\",\n  \"brand\": \"Nike\",\n  \"size\": \"S\",\n  \"color\": \"Red\",\n  \"gender\": \"Men\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					]
+				},
+				"description": "The endpoint allows the creation of a new product via a POST request to the specified URL. The request should include a JSON payload with the following fields:\n\n- name (string): The name of the product.\n- description (string): The description of the product.\n- price (number): The price of the product.\n- stock (number): The available stock of the product.\n- category (string): The category to which the product belongs.\n- brand (string): The brand of the product.\n- size (string): The size of the product.\n- color (string): The color of the product.\n- gender (string): The target gender for the product.\n    \n\nThe response of this request is documented as a JSON schema."
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4ifQ.dz-zND_Nkjkp_jLdGzVtjaB8mE77kNIE15P3p8mmCAU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Product Name\",\n  \"description\": \"Product Description\",\n  \"price\": 100,\n  \"stock\": 50,\n  \"category\": \"Shirts\",\n  \"brand\": \"Nike\",\n  \"size\": \"S\",\n  \"color\": \"Red\",\n  \"gender\": \"Men\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"094ebc984f6d709bb0b3316a949c9b6a\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "cdef5cf2-0bdf-4b0c-8617-4673fa981243"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.040660"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "sql.active_record;dur=8.99, start_processing.action_controller;dur=0.28, instantiation.active_record;dur=0.06, process_action.action_controller;dur=28.28"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 9,\n    \"name\": \"Product Name\",\n    \"description\": \"Product Description\",\n    \"price\": \"100.0\",\n    \"stock\": 50,\n    \"person\": null,\n    \"created_at\": \"2025-01-07T12:46:10.524Z\",\n    \"updated_at\": \"2025-01-07T12:46:10.524Z\",\n    \"category\": 0,\n    \"brand\": 0,\n    \"size\": 0,\n    \"color\": 0,\n    \"gender\": \"Men\"\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/orders",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4ifQ.dz-zND_Nkjkp_jLdGzVtjaB8mE77kNIE15P3p8mmCAU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"order\": {\n    \"status\": \"pending\",\n    \"order_items\": [\n      {\n        \"product_id\": 1,\n        \"quantity\": 1\n      }\n    ]\n  }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders"
+					]
+				},
+				"description": "The API endpoint allows you to create a new order by sending an HTTP POST request to the specified URL. The request should include a payload in the raw request body type with the order details, including the status and order items.\n\n### Response\n\nThe response of this request is a JSON schema representing the structure of the response data. The schema will outline the format and properties of the response object returned upon successfully creating a new order."
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4ifQ.dz-zND_Nkjkp_jLdGzVtjaB8mE77kNIE15P3p8mmCAU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"order\": {\n    \"status\": \"pending\",\n    \"order_items\": [\n      {\n        \"product_id\": 8,\n        \"quantity\": 1\n      }\n    ]\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"460eee000b8a8caa41cb59c7c76f4d01\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "0a68bba3-4d14-4cd1-b4ec-88dec833ee9a"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.060403"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "start_processing.action_controller;dur=0.18, sql.active_record;dur=11.31, instantiation.active_record;dur=4.26, unpermitted_parameters.action_controller;dur=0.19, process_action.action_controller;dur=49.49"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 5,\n    \"client_id\": 2,\n    \"status\": \"pending\",\n    \"created_at\": \"2025-01-07T12:46:38.263Z\",\n    \"updated_at\": \"2025-01-07T12:46:38.263Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/orders/1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4ifQ.dz-zND_Nkjkp_jLdGzVtjaB8mE77kNIE15P3p8mmCAU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"order\": {\n    \"status\": \"completed\"\n  }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/orders/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"orders",
+						"1"
+					]
+				},
+				"description": "### Update Order Status\n\nThis endpoint is used to update the status of a specific order.\n\n#### Request Body\n\n- `order` (object)\n    - `status` (string, required): The new status of the order.\n\n#### Response\n\nThe response will contain the updated details of the order after the status has been successfully updated."
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4ifQ.dz-zND_Nkjkp_jLdGzVtjaB8mE77kNIE15P3p8mmCAU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"order\": {\n    \"status\": \"completed\"\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/orders/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8e217ce044db61cc663f49a20aee3e40\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "9a09d26a-26d5-4fb8-a515-042a415581cb"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.022804"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "start_processing.action_controller;dur=0.17, sql.active_record;dur=13.99, instantiation.active_record;dur=0.26, process_action.action_controller;dur=20.10"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"completed\",\n    \"id\": 5,\n    \"client_id\": 2,\n    \"created_at\": \"2025-01-07T12:46:38.263Z\",\n    \"updated_at\": \"2025-01-07T12:46:58.423Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/products/search",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4ifQ.dz-zND_Nkjkp_jLdGzVtjaB8mE77kNIE15P3p8mmCAU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/products/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						"search"
+					]
+				},
+				"description": "### Retrieve Product Search\n\nThis endpoint makes an HTTP GET request to retrieve a list of products based on the search criteria.\n\n**Request Body**  \nThis request does not require a request body.\n\n**Response**\n\n- Status: 200 OK\n- Content-Type: application/json\n    \n\nExample Response Body:\n\n``` json\n[\n    {\n        \"id\": 0,\n        \"name\": \"\",\n        \"description\": \"\",\n        \"price\": \"\",\n        \"stock\": 0,\n        \"person\": null,\n        \"created_at\": \"\",\n        \"updated_at\": \"\",\n        \"category\": 0,\n        \"brand\": 0,\n        \"size\": 0,\n        \"color\": 0,\n        \"gender\": \"\"\n    }\n]\n\n ```\n\nThe response contains an array of product objects with their respective details such as id, name, description, price, stock, person, created_at, updated_at, category, brand, size, color, and gender."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/products/search?price_min=10&price_max=100",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4ifQ.dz-zND_Nkjkp_jLdGzVtjaB8mE77kNIE15P3p8mmCAU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/products/search?price_min=10&price_max=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						"search"
+					],
+					"query": [
+						{
+							"key": "price_min",
+							"value": "10"
+						},
+						{
+							"key": "price_max",
+							"value": "100"
+						}
+					]
+				},
+				"description": "### Retrieve Products by Price Range\n\nThis endpoint makes an HTTP GET request to retrieve products within a specified price range.\n\n#### Request Parameters\n\n- `price_min` (number) - The minimum price of the products to be retrieved.\n- `price_max` (number) - The maximum price of the products to be retrieved.\n    \n\n#### Response\n\nThe response will include the products that fall within the specified price range."
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4ifQ.dz-zND_Nkjkp_jLdGzVtjaB8mE77kNIE15P3p8mmCAU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/products/search?price_min=10&price_max=100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"search"
+							],
+							"query": [
+								{
+									"key": "price_min",
+									"value": "10"
+								},
+								{
+									"key": "price_max",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"30ee7f1e64e2eedb2692afa882a2fe81\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "98791bc9-5ff2-49be-8aee-3c45a86645f0"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.012779"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "start_processing.action_controller;dur=0.23, sql.active_record;dur=2.76, instantiation.active_record;dur=0.26, process_action.action_controller;dur=8.37"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Product Name\",\n        \"description\": \"Product Description\",\n        \"price\": \"100.0\",\n        \"stock\": 50,\n        \"person\": null,\n        \"created_at\": \"2024-11-10T20:07:03.848Z\",\n        \"updated_at\": \"2024-11-10T20:07:03.848Z\",\n        \"category\": 0,\n        \"brand\": 0,\n        \"size\": 0,\n        \"color\": 0,\n        \"gender\": \"Men\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Product Name\",\n        \"description\": \"Product Description\",\n        \"price\": \"100.0\",\n        \"stock\": 50,\n        \"person\": null,\n        \"created_at\": \"2024-11-10T20:35:34.334Z\",\n        \"updated_at\": \"2024-11-10T20:35:34.334Z\",\n        \"category\": 0,\n        \"brand\": 0,\n        \"size\": 0,\n        \"color\": 0,\n        \"gender\": \"Men\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Product Name\",\n        \"description\": \"Product Description\",\n        \"price\": \"100.0\",\n        \"stock\": 50,\n        \"person\": null,\n        \"created_at\": \"2025-01-07T10:55:20.230Z\",\n        \"updated_at\": \"2025-01-07T10:55:20.230Z\",\n        \"category\": 0,\n        \"brand\": 0,\n        \"size\": 0,\n        \"color\": 0,\n        \"gender\": \"Men\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Product Name\",\n        \"description\": \"Product Description\",\n        \"price\": \"100.0\",\n        \"stock\": 50,\n        \"person\": null,\n        \"created_at\": \"2025-01-07T11:10:49.613Z\",\n        \"updated_at\": \"2025-01-07T11:10:49.613Z\",\n        \"category\": 0,\n        \"brand\": 0,\n        \"size\": 0,\n        \"color\": 0,\n        \"gender\": \"Men\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Product Name\",\n        \"description\": \"Product Description\",\n        \"price\": \"100.0\",\n        \"stock\": 50,\n        \"person\": null,\n        \"created_at\": \"2025-01-07T11:12:12.424Z\",\n        \"updated_at\": \"2025-01-07T11:12:12.424Z\",\n        \"category\": 0,\n        \"brand\": 0,\n        \"size\": 0,\n        \"color\": 0,\n        \"gender\": \"Men\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Product Name\",\n        \"description\": \"Product Description\",\n        \"price\": \"100.0\",\n        \"stock\": 50,\n        \"person\": null,\n        \"created_at\": \"2025-01-07T11:13:53.711Z\",\n        \"updated_at\": \"2025-01-07T11:13:53.711Z\",\n        \"category\": 0,\n        \"brand\": 0,\n        \"size\": 0,\n        \"color\": 0,\n        \"gender\": \"Men\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Product Name\",\n        \"description\": \"Product Description\",\n        \"price\": \"100.0\",\n        \"stock\": 50,\n        \"person\": null,\n        \"created_at\": \"2025-01-07T11:25:55.016Z\",\n        \"updated_at\": \"2025-01-07T11:25:55.016Z\",\n        \"category\": 0,\n        \"brand\": 0,\n        \"size\": 0,\n        \"color\": 0,\n        \"gender\": \"Men\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Product Name\",\n        \"description\": \"Product Description\",\n        \"price\": \"100.0\",\n        \"stock\": 50,\n        \"person\": null,\n        \"created_at\": \"2025-01-07T11:31:26.609Z\",\n        \"updated_at\": \"2025-01-07T11:31:26.609Z\",\n        \"category\": 0,\n        \"brand\": 0,\n        \"size\": 0,\n        \"color\": 0,\n        \"gender\": \"Men\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"Product Name\",\n        \"description\": \"Product Description\",\n        \"price\": \"100.0\",\n        \"stock\": 50,\n        \"person\": null,\n        \"created_at\": \"2025-01-07T12:46:10.524Z\",\n        \"updated_at\": \"2025-01-07T12:46:10.524Z\",\n        \"category\": 0,\n        \"brand\": 0,\n        \"size\": 0,\n        \"color\": 0,\n        \"gender\": \"Men\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "report",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4ifQ.dz-zND_Nkjkp_jLdGzVtjaB8mE77kNIE15P3p8mmCAU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/order_reports/completed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"order_reports",
+						"completed"
+					]
+				},
+				"description": "# Get Completed Order Reports\n\nThis endpoint makes an HTTP GET request to retrieve completed order reports.\n\n### Request Body\n\nThis request does not require a request body.\n\n### Response Body\n\nThe response returns a status code of 200 and the content type is `text/xml`. The response body is not available for this request."
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4ifQ.dz-zND_Nkjkp_jLdGzVtjaB8mE77kNIE15P3p8mmCAU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/order_reports/completed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"order_reports",
+								"completed"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ab1d688f75083cd58e1e3c92106943bf\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "d2c19f7b-6185-4fc9-9efc-005d65269954"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.143157"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "sql.active_record;dur=7.60, start_processing.action_controller;dur=0.11, instantiation.active_record;dur=11.55, process_action.action_controller;dur=43.24"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"client_id\": 2,\n        \"status\": \"completed\",\n        \"created_at\": \"2024-11-10T20:15:33.523Z\",\n        \"updated_at\": \"2024-11-10T20:16:32.050Z\"\n    },\n    {\n        \"id\": 3,\n        \"client_id\": 2,\n        \"status\": \"completed\",\n        \"created_at\": \"2025-01-07T11:12:25.357Z\",\n        \"updated_at\": \"2025-01-07T11:14:09.053Z\"\n    }\n]"
+				}
+			]
+		}
+	]
+}
