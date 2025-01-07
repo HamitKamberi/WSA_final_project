@@ -17,9 +17,8 @@ class Api::OrdersController < ApplicationController
   # POST /api/orders
   def create
     @order = Order.new(order_params)
-    @order.client_id = current_user.id # Automatically associate the order with the current user
+    @order.client_id = current_user.id
     if @order.save
-      # Update product stock based on order quantity
       @order.order_items.each do |item|
         product = Product.find(item.product_id)
         product.update(stock: product.stock - item.quantity)

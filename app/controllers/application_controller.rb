@@ -12,10 +12,10 @@ class ApplicationController < ActionController::API
     if token
       begin
         decoded = JWT.decode(token, Rails.application.secrets.secret_key_base, true, algorithm: 'HS256')
-        puts "Decoded token: #{decoded.inspect}"  # Debug line
+        puts "Decoded token: #{decoded.inspect}" 
         return decoded
       rescue JWT::DecodeError => e
-        puts "JWT Decode Error: #{e.message}"  # Debug line
+        puts "JWT Decode Error: #{e.message}" 
         nil
       end
     end
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::API
       if decoded
         user_id = decoded[0]['user_id']
         user = User.find_by(id: user_id)
-        puts "Current user: #{user.inspect}"  # Debug line
+        puts "Current user: #{user.inspect}"
         user
       end
     end

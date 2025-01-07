@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # Skip authorization on the 'create' action for signup
   skip_before_action :authorize_request, only: [:create]
   before_action :authorize_admin!, only: [:index, :show]
 
