@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  post '/signup', to: 'users#create'      # Signup route
-  post '/login', to: 'auth#login'          # Login route
-  resources :users, only: [:index, :show]  # Users routes
+  post '/signup', to: 'users#create'
+  post '/login', to: 'auth#login'
+  resources :users, only: [:index, :show]
   namespace :api do
     resources :products do
       collection do
@@ -11,8 +10,7 @@ Rails.application.routes.draw do
     end
 
     resources :orders
+    get 'order_reports/completed', to: 'order_reports#completed'
+    get 'order_reports/total_profit', to: 'order_reports#total_profit'
   end
-  
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

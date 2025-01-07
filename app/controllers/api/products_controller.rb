@@ -1,6 +1,7 @@
 class Api::ProductsController < ApplicationController
   before_action :authorize_request
   before_action :set_product, only: [:show, :update, :destroy]
+  before_action :authorize_create_product, only: [:create]
 
   # GET /api/products
   def index
@@ -87,8 +88,13 @@ class Api::ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def authorize_create_product
+    unless current_user.admin?
+      render json: { error: 'Unauthorized to create products' }, status: :forbidden
+    end
+  end
+
   def product_params
     params.require(:product).permit(:name, :description, :price, :stock, :category, :brand, :size, :color, :gender)
   end
-  
 end

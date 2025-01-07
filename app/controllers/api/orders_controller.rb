@@ -1,6 +1,7 @@
 class Api::OrdersController < ApplicationController
   before_action :authorize_request
   before_action :set_order, only: [:show, :update]
+  before_action :authorize_update_order, only: [:update]
 
   # GET /api/orders
   def index
@@ -42,6 +43,12 @@ class Api::OrdersController < ApplicationController
 
   def set_order
     @order = Order.find(params[:id])
+  end
+
+  def authorize_update_order
+    unless current_user.admin? || current_user.advanced_user?
+      render json: { error: 'Unauthorized to update orders' }, status: :forbidden
+    end
   end
 
   def order_params
