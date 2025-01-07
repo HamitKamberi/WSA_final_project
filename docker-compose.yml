@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  db:
+    image: nouchka/sqlite3:latest
+    volumes:
+      - db-data:/app/db
+    networks:
+      - webapp_network
+
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b '0.0.0.0'"
+    volumes:
+      - ".:/app"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - webapp_network
+
+volumes:
+  db-data:
+
+networks:
+  webapp_network:
+    driver: bridge
