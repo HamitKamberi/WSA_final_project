@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f96bac53-4aab-43e8-897f-8ed762af1252",
+		"_postman_id": "cb512899-e0ca-40f2-8a10-cd5ba1826b49",
 		"name": "Assigment 1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "32426502"
@@ -227,6 +227,33 @@
 							"key": "price_max",
 							"value": "100"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "report",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWRtaW4ifQ.dz-zND_Nkjkp_jLdGzVtjaB8mE77kNIE15P3p8mmCAU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/order_reports/total_profit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"order_reports",
+						"total_profit"
 					]
 				}
 			},
