@@ -19,15 +19,23 @@ class Api::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.client_id = current_user.id
     if @order.save
+      puts "Order saved successfully. Processing stock update..."
       @order.order_items.each do |item|
-        product = Product.find(item.product_id)
-        product.update(stock: product.stock - item.quantity)
+        product = Product.find_by(id: item.product_id)
+        if product
+          puts "Updating stock for product ##{product.id}. Current stock: #{product.stock}, Ordered quantity: #{item.quantity}"
+          product.update(stock: product.stock - item.quantity)
+        else
+          puts "Product not found for item: #{item.product_id}"
+        end
       end
       render json: @order, status: :created
     else
+      puts "Order save failed: #{@order.errors.full_messages}"
       render json: @order.errors, status: :unprocessable_entity
     end
   end
+  
 
   # PATCH/PUT /api/orders/:id
   def update
@@ -51,6 +59,6 @@ class Api::OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:status, :client_id, order_items_attributes: [:product_id, :quantity])
+    params.require(:order).permit(:status, :client_id, :product_id, order_items_attributes: [:product_id, :quantity])
   end
 end

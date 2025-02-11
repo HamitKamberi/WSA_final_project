@@ -19,6 +19,9 @@ gem 'bcrypt'     # For password encryption
 gem 'pundit'     # For role-based authorization
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
