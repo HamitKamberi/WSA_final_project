@@ -36,7 +36,7 @@ class Api::ProductsController < ApplicationController
   # DELETE /api/products/:id
   def destroy
     @product.destroy
-    head :no_content
+    render json: { message: "Product successfully deleted." }, status: :ok
   end
 
   # GET /api/products/search
